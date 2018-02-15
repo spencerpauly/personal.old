@@ -1,17 +1,30 @@
 #include <iostream>
 
+#include "Matrix.cpp"
+#include "MatrixMath.cpp"
+#include "NeuralNet.cpp"
+
 using namespace std;
 
 void testFunction();
 
+/*
+Limitations:
+- We're building this to work with only 2 layers, no hidden layer.
+- Max 10 nodes per layer.
+
+
+
+
+*/
+
 int main()
 {
-    cout << "Hello world!" << endl;
-    testFunction();
-    return 0;
-}
+    NeuralNet net;
 
-void testFunction() {
-    string args;
-    cout << "Give sdme args" << endl;
+    net.create(10,10);
+
+    net.test();
+
+    net.run(20);
 }
