@@ -66,7 +66,7 @@ void Matrix::print() {
 
 //Mutators
 void Matrix::setMatrix(int rPos, int cPos, double value) {
-    //matrix[rPos][cPos] = value;
+    matrix[rPos][cPos] = value;
 }
 
 

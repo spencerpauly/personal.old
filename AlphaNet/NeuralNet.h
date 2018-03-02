@@ -20,10 +20,11 @@ using namespace std;
 class NeuralNet{
     private:
         static const int NETWORK_LAYERS = 2;
+        static const int MAX_NODES_PER_LAYER = 100;
         int s1;
         int s2;
         int epochs;
-        int input[];
+        int input[MAX_NODES_PER_LAYER];
         vector<double> currentWeights;
 
         //Methods
@@ -34,7 +35,7 @@ class NeuralNet{
         
     public:
         //Constructors
-
+        NeuralNet();
         //Methods
         bool create(int nodes1, int nodes2);
         bool run(int numberOfEpochs); //Run 1 iteration of the neural net.

@@ -18,9 +18,9 @@ using namespace std;
 
 //Constructors
 
-/*NeuralNet::NeuralNet() {
+NeuralNet::NeuralNet() {
 
-}*/
+}
 
 //Methods
 
@@ -46,7 +46,6 @@ bool NeuralNet::run(int numberOfEpochs) {
 }
 
 void NeuralNet::calculateIteration() {
-    input[] = {1,2,3,4,5,6,7,8,9,10}; //
     Matrix inputMatrix(10,1);
 
     //fill matrix
