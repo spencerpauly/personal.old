@@ -1,4 +1,4 @@
-#include "MatrixMath.h"
+#include "MatrixTools.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -14,6 +14,7 @@
 
 
 //Methods
+/*
 void MatrixMath::add(std::vector< std::vector<double> >& m1, std::vector< std::vector<double> >& m2) {
     if (canAdd(m1,m2) == true) {
         for (int i = 0; i < m1.size(); i++) {
@@ -65,7 +66,7 @@ bool MatrixMath::canMult(std::vector< std::vector<double> >& m1, std::vector< st
     //if not true then...
     return false;
 }
-
+*/
 
 
 //Mutators

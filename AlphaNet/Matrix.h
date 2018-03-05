@@ -2,11 +2,13 @@
 #define MATRIX_H
 
 #include <vector>
+#include "MatrixTools.h"
+
 using namespace std;
 
 //Matrix Class
 
-class Matrix {
+class Matrix : public MatrixTools {
     private:
         const double e = 2.71828182845904523536;
         int row;

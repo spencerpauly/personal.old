@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "Matrix.h"
-#include "MatrixMath.h"
+#include "MatrixTools.h"
 
 using namespace std;
 
