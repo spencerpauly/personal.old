@@ -63,10 +63,50 @@ void Matrix::print() {
     cout << endl;
 }
 
+void Matrix::clear() {
+    //clear the values in the matrix
+}
+
+bool Matrix::canAdd(Matrix& m2) {
+    return true;
+}
+bool Matrix::canSubtract(Matrix& m2) {
+    return true;
+
+}
+bool Matrix::canMult(Matrix& m2) {
+    return true;
+
+}
+bool Matrix::add(Matrix& m2, Matrix& result) {
+    return true;
+
+}
+bool Matrix::subtract(Matrix& m2, Matrix& result) {
+    return true;
+
+}
+bool Matrix::mult(Matrix& m2, Matrix& result) {
+    return true;
+
+}
+bool Matrix::copy(Matrix& result) {
+    return true;
+
+}
+
 
 //Mutators
 void Matrix::setMatrix(int rPos, int cPos, double value) {
     matrix[rPos][cPos] = value;
+}
+
+void Matrix::setRows(int newRowCount) {
+    row = newRowCount;
+}
+
+void Matrix::setCols(int newColCount) {
+    col = newColCount
 }
 
 
@@ -82,4 +122,8 @@ int Matrix::getCol() {
 std::vector< std::vector<double> > Matrix::getMatrix() {
     return matrix;
 }
+
+
+
+
 

@@ -40,15 +40,15 @@ double sigmoid(double x, bool deriv = false) {
 
 //Input Matrix
 double x_array[4][3] = {{0,0,1},
-                  {0,1,1},
-                  {1,0,1},
-                  {1,1,1}};
+                        {0,1,1},
+                        {1,0,1},
+                        {1,1,1}};
 
 //Output Matrix
 double y_array[4][1] = {{0},
-                  {1},
-                  {1},
-                  {0}};
+                        {1},
+                        {1},
+                        {0}};
 
 //Seed (for debugging)
 const double SEED = 1;

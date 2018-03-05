@@ -21,9 +21,22 @@ class Matrix {
         void randomize();
         void randomize(int minVal, int maxVal);
         void print();
+        bool copy(Matrix& result); 
+        bool canAdd(Matrix& m2);
+        bool canSubtract(Matrix& m2);
+        bool canMult(Matrix& m2);
+        bool add(Matrix& m2, Matrix& result);
+        bool subtract(Matrix& m2, Matrix& result);
+        bool mult(Matrix& m2, Matrix& result);
+        void clear();
+
+
+
 
         //Mutators
         void setMatrix(int rPos, int cPos, double value);
+        void setRows(int newRowCount);
+        void setCols(int newColCount);
 
         //Accessors
         int getRow();
