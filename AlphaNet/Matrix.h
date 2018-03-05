@@ -30,6 +30,7 @@ class Matrix {
         bool add(Matrix& m2, Matrix& result);
         bool subtract(Matrix& m1, Matrix& m2);
         bool mult(Matrix& m2, Matrix& result);
+        bool multTwo(Matrix& m1, Matrix& m2);
         bool multConst(double value);
         bool multIdentity(Matrix& result);
 

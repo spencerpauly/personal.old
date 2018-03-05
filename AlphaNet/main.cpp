@@ -116,8 +116,7 @@ int main()
 
         //Calculate deltas (difference in quantity every time)
         Matrix l2_delta;
-        
-
+        l2_delta.multTwo(l2_error, l2.sigmoid(true))
 
         Matrix l1_delta;
         Matrix l1_error(l1.getRows(), l1.getCols());

@@ -133,6 +133,32 @@ bool Matrix::mult(Matrix& m2, Matrix& result) {
     }
 }
 
+bool Matrix::multTwo(Matrix& m1, Matrix& m2) {
+    if (!m1.canMult(m2)) {
+        return false;
+    } else {
+        row = (m1.getRows());
+        col = (m2.getCols());
+        cout << "row: " << m1.getRows() << "col: " << m2.getCols() << endl;
+        //Loop through the # of rows of Matrix1
+        for (int i = 0; i < m1.getRows(); i++) {
+            //Loop through # of cols of Matrix2
+            for (int j = 0; j < m2.getCols(); j++) {
+                //Loop through # of cols of Matrix1
+                for (int k = 0; k < m1.getCols(); k++) {
+                    double newVal = m1.getValue(i,k) * m2.getValue(k,j);
+                    //DEBUG
+                    //cout << "new val [" << i << "][" << j << "] = " << newVal << endl;
+                    matrix[i][j] += newVal;
+                }
+            }
+        }
+        return true;
+    }
+
+}
+
+
 bool Matrix::multConst(double value) {
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
