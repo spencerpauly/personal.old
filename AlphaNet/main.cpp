@@ -60,7 +60,7 @@ const double BIAS = 1;
 const int TOTAL_ITERATIONS = 60000;
 const int PRINT_ITERATIONS = 10000;
 
-
+//MAIN
 
 int main() 
 {
@@ -110,7 +110,15 @@ int main()
 
     }
 
+    Matrix test1(3,3);
+    Matrix test2(3,3);
+    test1.randomize(1,5);
+    test2.randomize(1,5);
 
+    Matrix result(3,3);
+
+    cout << "Success: " << test1.mult(test2,result) << endl;
+    result.print();
 
     return 0;
 }

@@ -8,7 +8,6 @@ using namespace std;
 
 class Matrix {
     private:
-        int name;
         int row;
         int col;
         std::vector< std::vector<double> > matrix; //2-Dimensional Vector
@@ -21,14 +20,18 @@ class Matrix {
         void randomize();
         void randomize(int minVal, int maxVal);
         void print();
+        void clear();
         bool copy(Matrix& result); 
+        
         bool canAdd(Matrix& m2);
-        bool canSubtract(Matrix& m2);
+        bool canSubtract(Matrix& m2); //stub
         bool canMult(Matrix& m2);
         bool add(Matrix& m2, Matrix& result);
         bool subtract(Matrix& m2, Matrix& result);
         bool mult(Matrix& m2, Matrix& result);
-        void clear();
+
+        bool multIdentity(Matrix& result);
+
 
 
 
@@ -39,8 +42,9 @@ class Matrix {
         void setCols(int newColCount);
 
         //Accessors
-        int getRow();
-        int getCol();
+        int getRows();
+        int getCols();
+        double getValue(int rPos, int cPos);
         std::vector< std::vector<double> > getMatrix(); //Should be re-looked at when it's actually needed
 
 
