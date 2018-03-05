@@ -90,7 +90,7 @@ bool Matrix::canSubtract(Matrix& m2) { //stub
 
 }
 bool Matrix::canMult(Matrix& m2) {
-    if (row == m2.getCols()) //Check if the rows of the 1st matrix will multiply with the columns of the 2nd
+    if (col == m2.getRows()) //Check if the rows of the 1st matrix will multiply with the columns of the 2nd
         return true;
     //if not true then...
     return false;
@@ -99,7 +99,13 @@ bool Matrix::canMult(Matrix& m2) {
 bool Matrix::add(Matrix& m2, Matrix& result) {
 
 }
-bool Matrix::subtract(Matrix& m2, Matrix& result) {
+bool Matrix::subtract(Matrix& m1, Matrix& m2) {
+    //Impliment canSubtract here!
+    for (int i = 0; i < m1.getRows(); i++) {
+        for (int j = 0; j < m2.getCols(); j++) {
+            matrix[i][j] = m1.getValue(i,j) - m2.getValue(i,j);
+        }
+    }
     return true;
 
 }
@@ -109,6 +115,7 @@ bool Matrix::mult(Matrix& m2, Matrix& result) {
     } else {
         result.setRows(row);
         result.setCols(m2.getCols());
+        cout << "row: " << row << "col: " << m2.getCols() << endl;
         //Loop through the # of rows of Matrix1
         for (int i = 0; i < row; i++) {
             //Loop through # of cols of Matrix2
@@ -116,9 +123,9 @@ bool Matrix::mult(Matrix& m2, Matrix& result) {
                 //Loop through # of cols of Matrix1
                 for (int k = 0; k < col; k++) {
                     double newVal = matrix[i][k] * m2.getValue(k,j);
-
+                    //DEBUG
+                    //cout << "new val [" << i << "][" << j << "] = " << newVal << endl;
                     result.addVal(i,j, newVal);
-                    //result[i][j] += m1[i][k] * m2[k][j];
                 }
             }
         }
@@ -126,11 +133,19 @@ bool Matrix::mult(Matrix& m2, Matrix& result) {
     }
 }
 
+bool Matrix::multConst(double value) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            matrix[i][j] *= value;
+        }
+    }
+}
+
 bool Matrix::multIdentity(Matrix& result) {
     //Create identity matrix
-    Matrix identity(row, row);
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < row; j++) {
+    Matrix identity(col, col);
+    for (int i = 0; i < col; i++) {
+        for (int j = 0; j < col; j++) {
             if (i == j) {
                 identity.setMatrix(i,j,1);
             } else {
@@ -139,6 +154,8 @@ bool Matrix::multIdentity(Matrix& result) {
         }
     }
     identity.print();
+    result.setRows(row);
+    result.setCols(col);
     return mult(identity, result);
 }
 
@@ -150,11 +167,31 @@ void Matrix::multVal(int rPos, int cPos, double val) {
     matrix[rPos][cPos] *= val;
 }
 
+void Matrix::sigmoid(bool deriv /* = false */) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            double x = matrix[i][j];
+            if (deriv == true) {
+                matrix[i][j] = (x * (1-x));
+            } else {
+                matrix[i][j] = (1/(1 + pow(e,-x)));
+            }
+        }
+    }
+}
 
 
 //Mutators
 void Matrix::setMatrix(int rPos, int cPos, double value) {
     matrix[rPos][cPos] = value;
+}
+
+void Matrix::setAll(double value) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            matrix[i][j] = value;
+        }
+    }
 }
 
 void Matrix::setRows(int newRowCount) {
@@ -179,6 +216,18 @@ double Matrix::getValue(int rPos, int cPos) {
     return matrix[rPos][cPos];
 }
 
+double Matrix::getMean() {
+    double mean = 0;
+    int count = 0;
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            count++;
+            mean += matrix[i][j];
+        }
+    }
+    mean = mean/count;
+    return mean;
+}
 
 std::vector< std::vector<double> > Matrix::getMatrix() {
     return matrix;

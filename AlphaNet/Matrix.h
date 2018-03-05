@@ -8,6 +8,7 @@ using namespace std;
 
 class Matrix {
     private:
+        const double e = 2.71828182845904523536;
         int row;
         int col;
         std::vector< std::vector<double> > matrix; //2-Dimensional Vector
@@ -27,20 +28,20 @@ class Matrix {
         bool canSubtract(Matrix& m2); //stub
         bool canMult(Matrix& m2);
         bool add(Matrix& m2, Matrix& result);
-        bool subtract(Matrix& m2, Matrix& result);
+        bool subtract(Matrix& m1, Matrix& m2);
         bool mult(Matrix& m2, Matrix& result);
-
+        bool multConst(double value);
         bool multIdentity(Matrix& result);
 
         void addVal(int rPos, int cPos, double val);
         void multVal(int rPos, int cPos, double val);
 
-
-
+        void sigmoid(bool deriv = false);
 
 
         //Mutators
         void setMatrix(int rPos, int cPos, double value);
+        void setAll(double value);
         void setRows(int newRowCount);
         void setCols(int newColCount);
 
@@ -48,6 +49,7 @@ class Matrix {
         int getRows();
         int getCols();
         double getValue(int rPos, int cPos);
+        double getMean();
         std::vector< std::vector<double> > getMatrix(); //Should be re-looked at when it's actually needed
 
 

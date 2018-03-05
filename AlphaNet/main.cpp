@@ -5,6 +5,7 @@
 #include "Matrix.cpp"
 #include "MatrixMath.cpp"
 #include "NeuralNet.cpp"
+#include "debugFunctions.cpp"
 
 using namespace std;
 
@@ -99,24 +100,34 @@ int main()
     for (int i = 0; i < TOTAL_ITERATIONS; i++) {
 
         //Layers
-        Matrix l1(5,5);
+        Matrix l1;
+        Matrix l2;
 
-        MatrixMath mmath;
-        //mmath.mult(x.getMatrix(), syn0.getMatrix(), l1.getMatrix());
+        l1.sigmoid(x.mult(syn0, l1));
+        l2.sigmoid(l1.mult(syn1,l2));
 
-        /* Okay so here we ran into a problem where we need to
-        go back and merge the MatrixMath and matrix classes
-        together or else this will be a pain in the a**. */
+        //Backpropagation
+        Matrix l2_error(l2.getRows(), l2.getCols());
+
+        l2_error.subtract(y,l2);
+        if ((i % PRINT_ITERATIONS) == 0) {
+            cout << "Error: " << l2_error.getMean();
+        }
+
+        //Calculate deltas (difference in quantity every time)
+        Matrix l2_delta;
+        
+
+
+        Matrix l1_delta;
+        Matrix l1_error(l1.getRows(), l1.getCols());
+
+        
+
 
     }
 
-    Matrix test1(3,4);
-    test1.randomize(1,5);
-    test1.print();
-
-    Matrix result(3,4);
-    cout << "Success: " << test1.multIdentity(result) << endl;
-    result.print();
+    generalDebug();
 
     return 0;
 }
