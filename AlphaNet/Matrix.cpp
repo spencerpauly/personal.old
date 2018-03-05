@@ -107,18 +107,17 @@ bool Matrix::mult(Matrix& m2, Matrix& result) {
     if (!canMult(m2)) {
         return false;
     } else {
-        //Loop through the # of columns of Matrix1
+        result.setRows(row);
+        result.setCols(m2.getCols());
+        //Loop through the # of rows of Matrix1
         for (int i = 0; i < row; i++) {
-            //Loop through # of rows of Matrix2
+            //Loop through # of cols of Matrix2
             for (int j = 0; j < m2.getCols(); j++) {
-                //Loop through # of rows of Matrix1
-                for (int k = 0; k < row; k++) {
-                    result.setRows(i);
-                    result.setCols(j);
+                //Loop through # of cols of Matrix1
+                for (int k = 0; k < col; k++) {
+                    double newVal = matrix[i][k] * m2.getValue(k,j);
 
-                    double newVal = result.getValue(i,j) + ((matrix[i][k]) * (m2.getValue(k,j)));
-
-                    result.setMatrix(i,j, newVal);
+                    result.addVal(i,j, newVal);
                     //result[i][j] += m1[i][k] * m2[k][j];
                 }
             }
@@ -143,7 +142,13 @@ bool Matrix::multIdentity(Matrix& result) {
     return mult(identity, result);
 }
 
+void Matrix::addVal(int rPos, int cPos, double val) {
+    matrix[rPos][cPos] += val;
+}
 
+void Matrix::multVal(int rPos, int cPos, double val) {
+    matrix[rPos][cPos] *= val;
+}
 
 
 

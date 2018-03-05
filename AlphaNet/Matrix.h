@@ -22,7 +22,7 @@ class Matrix {
         void print();
         void clear();
         bool copy(Matrix& result); 
-        
+
         bool canAdd(Matrix& m2);
         bool canSubtract(Matrix& m2); //stub
         bool canMult(Matrix& m2);
@@ -31,6 +31,9 @@ class Matrix {
         bool mult(Matrix& m2, Matrix& result);
 
         bool multIdentity(Matrix& result);
+
+        void addVal(int rPos, int cPos, double val);
+        void multVal(int rPos, int cPos, double val);
 
 
 

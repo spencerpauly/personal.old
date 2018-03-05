@@ -110,11 +110,11 @@ int main()
 
     }
 
-    Matrix test1(3,3);
+    Matrix test1(3,4);
     test1.randomize(1,5);
     test1.print();
 
-    Matrix result(3,3);
+    Matrix result(3,4);
     cout << "Success: " << test1.multIdentity(result) << endl;
     result.print();
 
