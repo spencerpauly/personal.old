@@ -111,13 +111,11 @@ int main()
     }
 
     Matrix test1(3,3);
-    Matrix test2(3,3);
     test1.randomize(1,5);
-    test2.randomize(1,5);
+    test1.print();
 
     Matrix result(3,3);
-
-    cout << "Success: " << test1.mult(test2,result) << endl;
+    cout << "Success: " << test1.multIdentity(result) << endl;
     result.print();
 
     return 0;

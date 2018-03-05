@@ -108,9 +108,9 @@ bool Matrix::mult(Matrix& m2, Matrix& result) {
         return false;
     } else {
         //Loop through the # of columns of Matrix1
-        for (int i = 0; i < col; i++) {
+        for (int i = 0; i < row; i++) {
             //Loop through # of rows of Matrix2
-            for (int j = 0; j < m2.getRows(); j++) {
+            for (int j = 0; j < m2.getCols(); j++) {
                 //Loop through # of rows of Matrix1
                 for (int k = 0; k < row; k++) {
                     result.setRows(i);
@@ -139,10 +139,8 @@ bool Matrix::multIdentity(Matrix& result) {
             }
         }
     }
-
+    identity.print();
     return mult(identity, result);
-
-
 }
 
 
