@@ -70,6 +70,8 @@ int main()
     Matrix x(4,3);
     Matrix y(4,1);
 
+    MatrixMath mmath;
+
     //Fill X matrix
     for (int currentRow = 0; currentRow < 4; currentRow++) {
         for (int currentCol = 0; currentCol < 3; currentCol++) {
@@ -116,6 +118,7 @@ int main()
 
         //Calculate deltas (difference in quantity every time)
         Matrix l2_delta;
+        //l2_delta = 
         //l2_delta.multTwo(l2_error, l2.sigmoid(true))
 
         //Matrix l1_delta;
