@@ -1,11 +1,14 @@
 #include <iostream>
 #include <time.h>
 #include <random>
+#include <memory>
+
 
 #include "Matrix.cpp"
 #include "MatrixTools.cpp"
 #include "NeuralNet.cpp"
 #include "debugFunctions.cpp"
+
 
 using namespace std;
 
@@ -65,6 +68,19 @@ const int PRINT_ITERATIONS = 10000;
 
 int main() 
 {
+    srand(0);
+
+    Matrix x(3,4);
+    Matrix y(4,3);
+    
+
+
+
+    return 0;
+}
+
+/*
+
     srand(SEED);
 
     Matrix x(4,3);
@@ -130,6 +146,4 @@ int main()
     }
 
     generalDebug();
-
-    return 0;
-}
+*/

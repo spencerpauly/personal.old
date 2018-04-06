@@ -24,22 +24,9 @@ class Matrix : public MatrixTools {
         void randomize(int minVal, int maxVal);
         void print();
         void clear();
-        bool copy(Matrix& result); 
 
-        bool canAdd(Matrix& m2);
-        bool canSubtract(Matrix& m2); //stub
-        bool canMult(Matrix& m2);
-        bool add(Matrix& m2, Matrix& result);
-        bool subtract(Matrix& m1, Matrix& m2);
+        //bool canMult(Matrix& m2);
         bool mult(Matrix& m2, Matrix& result);
-        bool multTwo(Matrix& m1, Matrix& m2);
-        bool multConst(double value);
-        bool multIdentity(Matrix& result);
-
-        void addVal(int rPos, int cPos, double val);
-        void multVal(int rPos, int cPos, double val);
-
-        void sigmoid(bool deriv = false);
 
 
         //Mutators

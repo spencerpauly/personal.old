@@ -20,13 +20,13 @@
 CMAKE_CONFIGURATION_TYPES:STRING=Debug;Release;MinSizeRel;RelWithDebInfo
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=alphanet
+CMAKE_PROJECT_NAME:STATIC=NeuralNet
 
 //Value Computed by CMake
-alphanet_BINARY_DIR:STATIC=C:/Users/Spencer/Documents/gitfiles/personal/AlphaNet/build
+NeuralNet_BINARY_DIR:STATIC=C:/Users/Spencer/Documents/gitfiles/personal/AlphaNet/build
 
 //Value Computed by CMake
-alphanet_SOURCE_DIR:STATIC=C:/Users/Spencer/Documents/gitfiles/personal/AlphaNet
+NeuralNet_SOURCE_DIR:STATIC=C:/Users/Spencer/Documents/gitfiles/personal/AlphaNet
 
 
 ########################

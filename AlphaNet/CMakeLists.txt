@@ -1,8 +1,7 @@
-project(alphanet)
+cmake_minimum_required(VERSION 3.0)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++14")
+project(hello-vsc)
 
-add_executable(AlphaNet
-  main.cpp
-  NeuralNet.h
-)
+set(SOURCE hello-vsc.cpp)
+
+add_executable(${PROJECT_NAME} ${SOURCE})
