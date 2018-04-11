@@ -8,7 +8,7 @@ using namespace std;
 
 //Matrix Class
 
-class Matrix : public MatrixTools {
+class Matrix {
     private:
         const double e = 2.71828182845904523536;
         int row;
@@ -25,8 +25,11 @@ class Matrix : public MatrixTools {
         void print();
         void clear();
 
+        bool vectorToMatrix(std::vector< std::vector<double> >  newMatrix, int arrayRows, int arrayCols);
+        //array[] MatrixToArray();
+
         //bool canMult(Matrix& m2);
-        bool mult(Matrix& m2, Matrix& result);
+        //bool mult(Matrix& m2, Matrix& result);
 
 
         //Mutators
@@ -34,13 +37,15 @@ class Matrix : public MatrixTools {
         void setAll(double value);
         void setRows(int newRowCount);
         void setCols(int newColCount);
+        void setValue(int rPos, int cPos, double newValue);
+
 
         //Accessors
         int getRows();
         int getCols();
         double getValue(int rPos, int cPos);
         double getMean();
-        std::vector< std::vector<double> > getMatrix(); //Should be re-looked at when it's actually needed
+        //std::vector< std::vector<double> > getMatrix(); //Should be re-looked at when it's actually needed
 
 
 

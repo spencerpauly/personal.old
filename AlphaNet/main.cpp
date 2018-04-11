@@ -7,7 +7,6 @@
 #include "Matrix.cpp"
 #include "MatrixTools.cpp"
 #include "NeuralNet.cpp"
-#include "debugFunctions.cpp"
 
 
 using namespace std;
@@ -18,18 +17,22 @@ Limitations:
 - Max 100 nodes per layer.
 */
 
-/*
+std::vector< std::vector<double> > arr1 = { {4,0,4},
+                                            {0,4,0},
+                                            {2,2,2} };
+
+std::vector< std::vector<double> > arr2 = { {1,1,1},
+                                            {1,1,1},
+                                            {1,2,3} };
+
 int main()
 {
-    NeuralNet net;
+    Matrix m1;
 
-    net.create(10,10);
-
-    net.test();
-
-    net.run(20);
+    m1.vectorToMatrix(arr1, 3, 3);
 }
-*/
+
+/*
 
 //Sigmoid essentials
 const double e = 2.71828182845904523536;
@@ -78,6 +81,8 @@ int main()
 
     return 0;
 }
+
+*/
 
 /*
 
