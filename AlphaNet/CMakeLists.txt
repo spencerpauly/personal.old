@@ -1,7 +1,6 @@
-cmake_minimum_required(VERSION 3.0)
 
-project(hello-vsc)
+project(test)
 
-set(SOURCE hello-vsc.cpp)
-
-add_executable(${PROJECT_NAME} ${SOURCE})
+add_executable(test
+main.cpp
+)

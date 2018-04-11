@@ -1,0 +1,3 @@
+C:/Users/Spencer/Documents/gitfiles/personal/AlphaNet/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Spencer/Documents/gitfiles/personal/AlphaNet/build/CMakeFiles/test.dir
+C:/Users/Spencer/Documents/gitfiles/personal/AlphaNet/build/CMakeFiles/edit_cache.dir
