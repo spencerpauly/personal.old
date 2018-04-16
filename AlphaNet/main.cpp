@@ -4,10 +4,11 @@
 #include <memory>
 
 
-#include "Matrix.cpp"
-#include "MatrixTools.cpp"
-#include "NeuralNet.cpp"
+#include "Matrix.h"
+#include "MatrixTools.h"
+#include "NeuralNet.h"
 
+#include "debugFunctions.cpp"
 
 using namespace std;
 
@@ -25,12 +26,18 @@ std::vector< std::vector<double> > arr2 = { {1,1,1},
                                             {1,1,1},
                                             {1,2,3} };
 
+
 int main()
 {
-    Matrix m1;
+    testMatrixAddition();
 
-    m1.vectorToMatrix(arr1, 3, 3);
+
+
+    return 0;
 }
+
+
+
 
 /*
 

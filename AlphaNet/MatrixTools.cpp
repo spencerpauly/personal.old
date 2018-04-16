@@ -1,5 +1,10 @@
 
-#include "PrecondViolatedExcep.h"
+#include "PrecondViolatedExcep.cpp"
+#include "Matrix.h"
+
+class Matrix;
+
+using namespace std;
 
 Matrix MatrixTools::add(Matrix m1, Matrix m2) {
 

@@ -1,5 +1,3 @@
-#include "Matrix.h"
-
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
@@ -9,11 +7,19 @@
 #include <time.h>
 #include <vector>
 
-
 using namespace std;
 
 
+
 //Constructors
+
+Matrix::Matrix() {
+    row = 0;
+    col = 0;
+
+}
+
+
 Matrix::Matrix(int r, int c) {
     row = r;
     col = c;
@@ -24,6 +30,22 @@ Matrix::Matrix(int r, int c) {
         matrix[i].resize(col);
     }
 }
+
+//Private Methods
+bool Matrix::resize(int newRows, int newCols) {
+    row = newRows;
+    col = newCols;
+
+    matrix.clear();
+
+    //Set # of rows for matrix
+    matrix.resize(row);
+    for (int i = 0; i < row; i++) {
+        //Set # of columns for matrix
+        matrix[i].resize(col);
+    }
+}  
+
 
 //Debug Methods
 void Matrix::randomize() {
@@ -49,7 +71,6 @@ void Matrix::print() {
         }
         cout << endl;
     }
-    cout << endl;
 }
 
 //Methods
@@ -60,13 +81,11 @@ void Matrix::clear() {
             matrix[i][j] = 0;
         }
     }
-    row = 0;
-    col = 0;
+    resize(0,0);
 }
 
 bool Matrix::vectorToMatrix(std::vector< std::vector<double> >  newMatrix, int arrayRows, int arrayCols) {
-    row = arrayRows;
-    col = arrayCols;
+    resize(arrayRows, arrayCols);
 
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
@@ -119,17 +138,16 @@ void Matrix::setAll(double value) {
 }
 
 void Matrix::setRows(int newRowCount) {
-    row = newRowCount;
+    resize(newRowCount, col);
 }
 
 void Matrix::setCols(int newColCount) {
-    col = newColCount;
+    resize(row, newColCount);
 }
 
 void Matrix::setValue(int rPos, int cPos, double newValue) {
     matrix[rPos][cPos] = newValue;
 }
-
 
 
 //Accessors
@@ -162,6 +180,15 @@ double Matrix::getMean() {
 //     return matrix;
 // }
 
+bool Matrix::copy(Matrix newMatrix) {
+    resize(newMatrix.getRows(), newMatrix.getCols() );
+    
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            matrix[i][j] = newMatrix.getValue(i, j);
+        }
+    }
+}
 
 
 

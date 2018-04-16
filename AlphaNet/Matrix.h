@@ -2,7 +2,6 @@
 #define MATRIX_H
 
 #include <vector>
-#include "MatrixTools.h"
 
 using namespace std;
 
@@ -14,9 +13,11 @@ class Matrix {
         int row;
         int col;
         std::vector< std::vector<double> > matrix; //2-Dimensional Vector
+
+        bool resize(int newRows, int newCols);
     public:
         //Constructors
-        Matrix(){}
+        Matrix();
         Matrix(int r, int c);
 
         //Methods
@@ -26,6 +27,7 @@ class Matrix {
         void clear();
 
         bool vectorToMatrix(std::vector< std::vector<double> >  newMatrix, int arrayRows, int arrayCols);
+        bool copy(Matrix newMatrix);
         //array[] MatrixToArray();
 
         //bool canMult(Matrix& m2);
@@ -47,9 +49,9 @@ class Matrix {
         double getMean();
         //std::vector< std::vector<double> > getMatrix(); //Should be re-looked at when it's actually needed
 
-
-
-
 };
+
+#include "Matrix.cpp"
+
 
 #endif // MATRIX_H

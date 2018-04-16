@@ -12,33 +12,34 @@
 
 using namespace std;
 
-//Global debug variables
-bool checkMatrixMultVar = 0;
+//Headers
+bool testMatrixAddition();
 
-//Debug functions
-void generalDebug();
-void checkMatrixMult();
 
-void generalDebug() {
-    if (checkMatrixMultVar == true)
-        checkMatrixMult();
+
+//Implementations
+bool testMatrixAddition() {
+    MatrixTools mt;
+
+    Matrix m1;
+    m1.vectorToMatrix(arr1, 3, 3);
+    m1.print();
+
+    cout << "  +" << endl;
     
-}
+    Matrix m2;
+    m2.vectorToMatrix(arr2, 3, 3);
+    m2.print();
+
+    cout << "  ="  << endl;
 
 
-//Debug function implimentations
-void checkMatrixMult() {
-    Matrix test1(3,2);
-    test1.randomize(1,3);
-    test1.print();
+    Matrix m3;
+    m3.copy( mt.add(m1, m2) );
 
-    Matrix test2(2,2);
-    test2.randomize(1,3);
-    test2.print();
+    m3.print();
 
 
-    Matrix result(3,3);
-    cout << "Success: " << test1.mult(test2,result) << endl;
-    result.print();
 
+    return 0;
 }

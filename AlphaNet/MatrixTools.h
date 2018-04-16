@@ -36,4 +36,7 @@ class MatrixTools {
 
 };
 
+#include "MatrixTools.cpp"
+
+
 #endif // MATRIXTOOLS_H
