@@ -34,9 +34,6 @@ class Matrix {
         bool copy(Matrix fromMatrix);
         //array[] MatrixToArray();
 
-        //bool canMult(Matrix& m2);
-        //bool mult(Matrix& m2, Matrix& result);
-
 
         //Mutators
         void setMatrix(int rPos, int cPos, double value);
@@ -55,6 +52,8 @@ class Matrix {
 
         //Operator Overloads
         Matrix operator+(Matrix rhs);
+        //Matrix operator*(Matrix rhs);
+
         void operator=(Matrix rhs);
 
 

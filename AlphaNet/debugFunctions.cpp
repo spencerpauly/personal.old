@@ -38,6 +38,7 @@ bool testMatrixAddition() {
     
     Matrix m2;
     m2.vectorToMatrix(testData2, 3, 3);
+    cout << "hi";
     m2.print();
 
     cout << "  ="  << endl;

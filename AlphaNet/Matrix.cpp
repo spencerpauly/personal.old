@@ -49,12 +49,22 @@ bool Matrix::resize(int newRows, int newCols) {
 bool Matrix::canAdd(Matrix m2) {
 
     if (row != m2.getRows() || col != m2.getCols() ) {
-        string message("MatrixTools::add() called with invalid Matrices. ");
+        string message("Matrix class overloaded '+' operator called with invalid Matrices. ");
         throw PrecondViolatedExcep(message);
     }
 
     return true;
 }
+
+// bool Matrix::canMult(Matrix m2) {
+
+//     if (col == m2.getRows() ) {
+//         string message("Matrix class overloaded '*' operator called with invalid Matrices. ");
+//         throw PrecondViolatedExcep(message);
+//     }
+
+//     return true;
+// }
 
 
 
@@ -223,8 +233,16 @@ Matrix Matrix::operator+(Matrix rhs) {
 
 //     Matrix newMatrix(row, rhs.getCols() );
 
+//     double newVal(0);
+
 //     for (int i = 0; i < row; i++) {
-//         for (int j = 0; j < col; j++) {
+//         for (int j = 0; j < rhs.getCols(); j++) {
+//             for (int k = 0; k < col; k++) {
+//                 newVal = matrix[i][k] * rhs.getValue(k,j);
+//                 newMatrix.setValue(i,j, newMatrix.getValue(i,j) + newVal);
+
+
+//             }
 //             double newVal = matrix[i][j] + rhs.getValue(i,j);
 
 //             newMatrix.setValue(i,j, newVal);
