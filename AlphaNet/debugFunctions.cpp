@@ -17,9 +17,9 @@ std::vector< std::vector<double> > testData1 = { {4,0,4},
                                             {0,4,0},
                                             {2,2,2} };
 
-std::vector< std::vector<double> > testData2 = { {1,1,1},
-                                            //{1,1,1},
-                                            {1,2,3} };
+std::vector< std::vector<double> > testData2 = { {1,2,3},
+                                            {9,3,5},
+                                            {3,4,1} };
 
 //Headers
 bool testMatrixAddition();
@@ -34,17 +34,16 @@ bool testMatrixAddition() {
     m1.vectorToMatrix(testData1, 3, 3);
     m1.print();
 
-    cout << "  +" << endl;
-    
+    cout << "  *" << endl;
+
     Matrix m2;
     m2.vectorToMatrix(testData2, 3, 3);
-    cout << "hi";
     m2.print();
 
     cout << "  ="  << endl;
 
     Matrix m3;
-    m3 = m1+m2;
+    m3 = m1 * m2;
     m3.print();
 
     return 0;

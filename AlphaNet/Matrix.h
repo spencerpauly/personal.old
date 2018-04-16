@@ -51,8 +51,8 @@ class Matrix {
         //std::vector< std::vector<double> > getMatrix(); //Should be re-looked at when it's actually needed
 
         //Operator Overloads
-        Matrix operator+(Matrix rhs);
-        //Matrix operator*(Matrix rhs);
+        //Matrix operator+(Matrix rhs);
+        Matrix operator*(Matrix rhs);
 
         void operator=(Matrix rhs);
 
