@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 //Matrix Class
 
 class Matrix {
@@ -15,6 +16,9 @@ class Matrix {
         std::vector< std::vector<double> > matrix; //2-Dimensional Vector
 
         bool resize(int newRows, int newCols);
+        bool canMult(Matrix m2);
+        bool canAdd(Matrix m2);
+        bool canSubtract(Matrix m2);
     public:
         //Constructors
         Matrix();
@@ -27,7 +31,7 @@ class Matrix {
         void clear();
 
         bool vectorToMatrix(std::vector< std::vector<double> >  newMatrix, int arrayRows, int arrayCols);
-        bool copy(Matrix newMatrix);
+        bool copy(Matrix fromMatrix);
         //array[] MatrixToArray();
 
         //bool canMult(Matrix& m2);
@@ -48,6 +52,11 @@ class Matrix {
         double getValue(int rPos, int cPos);
         double getMean();
         //std::vector< std::vector<double> > getMatrix(); //Should be re-looked at when it's actually needed
+
+        //Operator Overloads
+        Matrix operator+(Matrix rhs);
+        void operator=(Matrix rhs);
+
 
 };
 

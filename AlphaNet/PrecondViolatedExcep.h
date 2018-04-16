@@ -31,4 +31,7 @@ public:
    virtual ~PrecondViolatedExcep() noexcept = default; //throw();
 };
 
+#include "PrecondViolatedExcep.cpp"
+
+
 #endif

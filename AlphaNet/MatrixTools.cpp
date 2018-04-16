@@ -1,5 +1,5 @@
 
-#include "PrecondViolatedExcep.cpp"
+#include "PrecondViolatedExcep.h"
 #include "Matrix.h"
 
 class Matrix;

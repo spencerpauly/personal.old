@@ -7,9 +7,9 @@
 #include <time.h>
 #include <vector>
 
+#include "PrecondViolatedExcep.h"
+
 using namespace std;
-
-
 
 //Constructors
 
@@ -45,6 +45,17 @@ bool Matrix::resize(int newRows, int newCols) {
         matrix[i].resize(col);
     }
 }  
+
+bool Matrix::canAdd(Matrix m2) {
+
+    if (row != m2.getRows() || col != m2.getCols() ) {
+        string message("MatrixTools::add() called with invalid Matrices. ");
+        throw PrecondViolatedExcep(message);
+    }
+
+    return true;
+}
+
 
 
 //Debug Methods
@@ -180,14 +191,51 @@ double Matrix::getMean() {
 //     return matrix;
 // }
 
-bool Matrix::copy(Matrix newMatrix) {
-    resize(newMatrix.getRows(), newMatrix.getCols() );
+bool Matrix::copy(Matrix fromMatrix) {
+    resize(fromMatrix.getRows(), fromMatrix.getCols() );
     
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
-            matrix[i][j] = newMatrix.getValue(i, j);
+            matrix[i][j] = fromMatrix.getValue(i, j);
         }
     }
+}
+
+//Operator Overloads
+Matrix Matrix::operator+(Matrix rhs) {
+    canAdd(rhs);
+
+    Matrix newMatrix(row, col);
+
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            double newVal = matrix[i][j] + rhs.getValue(i,j);
+
+            newMatrix.setValue(i,j, newVal);
+        }
+    }
+
+    return newMatrix;
+}
+
+// Matrix Matrix::operator*(Matrix rhs) {
+//     canMult(rhs);
+
+//     Matrix newMatrix(row, rhs.getCols() );
+
+//     for (int i = 0; i < row; i++) {
+//         for (int j = 0; j < col; j++) {
+//             double newVal = matrix[i][j] + rhs.getValue(i,j);
+
+//             newMatrix.setValue(i,j, newVal);
+//         }
+//     }
+
+//     return newMatrix;
+// }
+
+void Matrix::operator=(Matrix rhs) {
+    copy(rhs);
 }
 
 

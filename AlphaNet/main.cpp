@@ -3,7 +3,6 @@
 #include <random>
 #include <memory>
 
-
 #include "Matrix.h"
 #include "MatrixTools.h"
 #include "NeuralNet.h"
@@ -18,6 +17,12 @@ Limitations:
 - Max 100 nodes per layer.
 */
 
+/*
+Todo: + Operator overload in matrix.h & cpp
+
+
+*/
+
 std::vector< std::vector<double> > arr1 = { {4,0,4},
                                             {0,4,0},
                                             {2,2,2} };
@@ -30,8 +35,6 @@ std::vector< std::vector<double> > arr2 = { {1,1,1},
 int main()
 {
     testMatrixAddition();
-
-
 
     return 0;
 }
