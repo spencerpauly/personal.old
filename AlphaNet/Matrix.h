@@ -50,6 +50,7 @@ class Matrix {
 
         //Operator Overloads
         Matrix operator+(Matrix rhs);
+        Matrix operator-(Matrix rhs);
         Matrix operator*(Matrix rhs);
         void operator=(Matrix rhs);
 

@@ -56,10 +56,28 @@ bool Matrix::canAdd(Matrix m2) {
     return true;
 }
 
+bool Matrix::canSubtract(Matrix m2) {
+
+    if (row != m2.getRows() || col != m2.getCols() ) {
+        string message("Matrix class overloaded '-' operator called with invalid Matrices. ");
+        throw PrecondViolatedExcep(message);
+    }
+
+    return true;
+}
+
 bool Matrix::canMult(Matrix m2) {
 
     if (col != m2.getRows() ) {
-        string message("Matrix class overloaded '*' operator called with invalid Matrices. ");
+        string message("Matrix class overloaded '*' operator called with invalid Matrices of size: ");
+        message += to_string(row);
+        message += "x";
+        message += to_string(col);
+        message += " & ";
+        message += to_string(m2.getRows());
+        message += "x";
+        message += to_string(m2.getCols());
+
         throw PrecondViolatedExcep(message);
     }
 
@@ -195,7 +213,7 @@ bool Matrix::copy(Matrix fromMatrix) {
             matrix[i][j] = fromMatrix.getValue(i, j);
         }
     }
-    
+
 }
 
 //Operator Overloads
@@ -216,6 +234,24 @@ Matrix Matrix::operator+(Matrix rhs) {
 
     return newMatrix;
 }
+
+Matrix Matrix::operator-(Matrix rhs) {
+
+    canSubtract(rhs);
+
+    Matrix newMatrix(row, col);
+
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            double newVal = matrix[i][j] - rhs.getValue(i,j);
+
+            newMatrix.setValue(i,j, newVal);
+        }
+    }
+
+    return newMatrix;
+}
+
 
 Matrix Matrix::operator*(Matrix rhs) {
 
