@@ -16,7 +16,6 @@ using namespace std;
 Matrix::Matrix() {
     row = 0;
     col = 0;
-
 }
 
 
@@ -33,6 +32,7 @@ Matrix::Matrix(int r, int c) {
 
 //Private Methods
 bool Matrix::resize(int newRows, int newCols) {
+
     row = newRows;
     col = newCols;
 
@@ -70,42 +70,51 @@ bool Matrix::canMult(Matrix m2) {
 
 //Debug Methods
 void Matrix::randomize() {
+
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
             matrix[i][j] = rand() % 10;
         }
     }
+
 }
 
 void Matrix::randomize(int minVal, int maxVal) {
+
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
             matrix[i][j] = (rand() % (maxVal-minVal)) + minVal; //Does not work with doubles
         }
     }
+
 }
 
 void Matrix::print() {
+
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
             cout << matrix[i][j] << " ";
         }
         cout << endl;
     }
+
 }
 
 //Methods
 
 void Matrix::clear() {
+
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
             matrix[i][j] = 0;
         }
     }
     resize(0,0);
+
 }
 
 bool Matrix::vectorToMatrix(std::vector< std::vector<double> >  newMatrix, int arrayRows, int arrayCols) {
+
     resize(arrayRows, arrayCols);
 
     for (int i = 0; i < row; i++) {
@@ -113,6 +122,7 @@ bool Matrix::vectorToMatrix(std::vector< std::vector<double> >  newMatrix, int a
             matrix[i][j] = newMatrix[i][j];
         }
     }
+
 }
 
 
@@ -122,11 +132,13 @@ void Matrix::setMatrix(int rPos, int cPos, double value) {
 }
 
 void Matrix::setAll(double value) {
+
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
             matrix[i][j] = value;
         }
     }
+
 }
 
 void Matrix::setRows(int newRowCount) {
@@ -156,6 +168,7 @@ double Matrix::getValue(int rPos, int cPos) {
 }
 
 double Matrix::getMean() {
+
     double mean = 0;
     int count = 0;
     for (int i = 0; i < row; i++) {
@@ -166,6 +179,7 @@ double Matrix::getMean() {
     }
     mean = mean/count;
     return mean;
+
 }
 
 // std::vector< std::vector<double> > Matrix::getMatrix() {
@@ -173,6 +187,7 @@ double Matrix::getMean() {
 // }
 
 bool Matrix::copy(Matrix fromMatrix) {
+
     resize(fromMatrix.getRows(), fromMatrix.getCols() );
     
     for (int i = 0; i < row; i++) {
@@ -180,26 +195,30 @@ bool Matrix::copy(Matrix fromMatrix) {
             matrix[i][j] = fromMatrix.getValue(i, j);
         }
     }
+    
 }
 
 //Operator Overloads
-// Matrix Matrix::operator+(Matrix rhs) {
-//     canAdd(rhs);
 
-//     Matrix newMatrix(row, col);
+Matrix Matrix::operator+(Matrix rhs) {
 
-//     for (int i = 0; i < row; i++) {
-//         for (int j = 0; j < col; j++) {
-//             double newVal = matrix[i][j] + rhs.getValue(i,j);
+    canAdd(rhs);
 
-//             newMatrix.setValue(i,j, newVal);
-//         }
-//     }
+    Matrix newMatrix(row, col);
 
-//     return newMatrix;
-// }
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            double newVal = matrix[i][j] + rhs.getValue(i,j);
+
+            newMatrix.setValue(i,j, newVal);
+        }
+    }
+
+    return newMatrix;
+}
 
 Matrix Matrix::operator*(Matrix rhs) {
+
     canMult(rhs);
 
     Matrix newMatrix(row, rhs.getCols() );
@@ -216,7 +235,6 @@ Matrix Matrix::operator*(Matrix rhs) {
                 newVal = matrix[i][k] * rhs.getValue(k,j);
 
                 newMatrix.setValue(i,j, newMatrix.getValue(i,j) + newVal);
-
             }
         }
     }
@@ -224,27 +242,6 @@ Matrix Matrix::operator*(Matrix rhs) {
     return newMatrix;
 }
 
-// Matrix Matrix::mult(Matrix& m1, Matrix& m2) {
-//     if (canMult(m1,m2)) {
-//         result.setRows(row);
-//         result.setCols(m2.getCols());
-//         cout << "row: " << row << "col: " << m2.getCols() << endl;
-//         //Loop through the # of rows of Matrix1
-//         for (int i = 0; i < row; i++) {
-//             //Loop through # of cols of Matrix2
-//             for (int j = 0; j < m2.getCols(); j++) {
-//                 //Loop through # of cols of Matrix1
-//                 for (int k = 0; k < col; k++) {
-//                     double newVal = matrix[i][k] * m2.getValue(k,j);
-//                     //DEBUG
-//                     //cout << "new val [" << i << "][" << j << "] = " << newVal << endl;
-//                     result.addVal(i,j, newVal);
-//                 }
-//             }
-//         }
-//         return true;
-//     }
-// }
 
 void Matrix::operator=(Matrix rhs) {
     copy(rhs);

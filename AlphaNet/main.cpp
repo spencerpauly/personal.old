@@ -11,18 +11,6 @@
 
 using namespace std;
 
-/*
-Limitations:
-- We're building this to work with only 2 layers, no hidden layer.
-- Max 100 nodes per layer.
-*/
-
-/*
-Todo: + Operator overload in matrix.h & cpp
-
-
-*/
-
 std::vector< std::vector<double> > arr1 = { {4,0,4},
                                             {0,4,0},
                                             {2,2,2} };
@@ -31,10 +19,9 @@ std::vector< std::vector<double> > arr2 = { {1,1,1},
                                             {1,1,1},
                                             {1,2,3} };
 
-
 int main()
 {
-    testMatrixAddition();
+    testMatrixToolsMult();
 
     return 0;
 }

@@ -19,6 +19,7 @@ class Matrix {
         bool canMult(Matrix m2);
         bool canAdd(Matrix m2);
         bool canSubtract(Matrix m2);
+
     public:
         //Constructors
         Matrix();
@@ -32,8 +33,6 @@ class Matrix {
 
         bool vectorToMatrix(std::vector< std::vector<double> >  newMatrix, int arrayRows, int arrayCols);
         bool copy(Matrix fromMatrix);
-        //array[] MatrixToArray();
-
 
         //Mutators
         void setMatrix(int rPos, int cPos, double value);
@@ -42,24 +41,20 @@ class Matrix {
         void setCols(int newColCount);
         void setValue(int rPos, int cPos, double newValue);
 
-
         //Accessors
         int getRows();
         int getCols();
         double getValue(int rPos, int cPos);
         double getMean();
-        //std::vector< std::vector<double> > getMatrix(); //Should be re-looked at when it's actually needed
+        //std::vector< std::vector<double> > matrixToVector(); //Should be re-looked at when it's actually needed
 
         //Operator Overloads
-        //Matrix operator+(Matrix rhs);
+        Matrix operator+(Matrix rhs);
         Matrix operator*(Matrix rhs);
-
         void operator=(Matrix rhs);
-
 
 };
 
 #include "Matrix.cpp"
-
 
 #endif // MATRIX_H
