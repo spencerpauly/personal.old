@@ -17,7 +17,6 @@ int main()
     //testAdvancedMath();
     //testMatrixMult();
 
-    runNeuralNet();
     return 0;
 }
 

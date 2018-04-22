@@ -14,31 +14,37 @@
 #include <vector>
 #include <iostream>
 
+#include "Matrix.h"
+#include "MatrixTools.h"
+
+
+/*
+Future Updates:
+    - have create() method just ask for a config file for the neural net and use those variables.
+    - 
+*/
+
 using namespace std;
 
 
-class NeuralNet{
+class NeuralNet {
     private:
-        static const int NETWORK_LAYERS = 2;
-        static const int MAX_NODES_PER_LAYER = 100;
-        int s1;
-        int s2;
-        int epochs;
-        int input[MAX_NODES_PER_LAYER];
-        vector<double> currentWeights;
+        static const int NETWORK_LAYERS = 3;
+        Matrix layer[NETWORK_LAYERS];
+
+        const int epochs = 10000;
 
         //Methods
         //void runIteration(); // 1. Do the calculator math, 2. Save ending values, 3. Calculate best genetic changes to undergo
-        void calculateIteration();
-        void saveData();
-        void evolutionAlgorithm();
         
     public:
         //Constructors
         NeuralNet();
         //Methods
-        bool create(int nodes1, int nodes2);
-        bool run(int numberOfEpochs); //Run 1 iteration of the neural net.
+        bool create(); //Will be outsourced to another class, basically sets all variables
+        bool train(); //Run 1 iteration of the neural net.
+
+        bool run(Matrix inputData); //Run 1 iteration of the neural net.
         void test() { cout << "It works." << endl; }
 
         //Mutators
@@ -49,4 +55,6 @@ class NeuralNet{
 
 };
 
-#endif // MATRIX_H
+#include "NeuralNet.cpp"
+
+#endif // NEURALNET_H

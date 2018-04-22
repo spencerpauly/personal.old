@@ -12,7 +12,9 @@
 #include <cstdlib>
 #include <vector>
 #include <time.h>
-#include "NeuralNet.h"
+
+#include "Matrix.h"
+#include "MatrixTools.h"
 
 using namespace std;
 
@@ -24,37 +26,20 @@ NeuralNet::NeuralNet() {
 
 //Methods
 
-bool NeuralNet::create(int node1, int node2) {
-    s1 = node1;
-    s2 = node2;
-
+bool NeuralNet::create(Matrix inputData) {
+    layer[0] = inputData;
     return true;
 }
 
-bool NeuralNet::run(int numberOfEpochs) {
-    int runs = 0;
-    while (runs < numberOfEpochs) {
-        cout << "running epoch... " << endl;
-        //
-        calculateIteration();
-
-
-        //
-    runs++;
-    }
-    return true;
-}
-
-void NeuralNet::calculateIteration() {
-    Matrix inputMatrix(10,1);
-
-    //fill matrix
-    for (int i = 0; i < 10; i++) {
-        inputMatrix.setMatrix(0, i, input[i]);
-    }
-
+bool NeuralNet::train() {
     
 
+    return true;
+}
+
+bool NeuralNet::run(Matrix inputData) {
+
+    return true;
 }
 
 //Mutators
